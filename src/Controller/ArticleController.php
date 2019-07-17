@@ -22,21 +22,4 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    public function createArticle(): Response
-    {
-
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $article = new Article();
-        $article->setTitle('title');
-        $article->setText('text');
-        $article->setIsPublished(true);
-
-        $entityManager->persist($article);
-
-        $entityManager->flush();
-
-        return new Response('Saved new article with id '.$article->getId());
-
-    }
 }
